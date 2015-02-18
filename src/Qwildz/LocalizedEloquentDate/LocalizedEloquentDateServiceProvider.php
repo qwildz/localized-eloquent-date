@@ -1,5 +1,6 @@
 <?php namespace Qwildz\LocalizedEloquentDate;
 
+use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
 class LocalizedEloquentDateServiceProvider extends ServiceProvider {
@@ -18,7 +19,10 @@ class LocalizedEloquentDateServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('qwildz/localized-eloquent-date');
+		if(preg_match('/^4/',Application::VERSION))
+		{
+			$this->package('qwildz/localized-eloquent-date');
+		}
 	}
 
 	/**
